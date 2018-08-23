@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Docker KS</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/sky.css">
+
+		<!-- Font awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img id="docker-image" src="https://msdnshared.blob.core.windows.net/media/2017/10/docker.png" />
+					<h1 class="fragment">Docker</h1>
+				</section> <!-- End of first -->
+
+				<section>
+					<h3>Agenda <i class="fas fa-tasks"></i></h3>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">Application containerization</li>
+						<li class="fragment fade-in-then-semi-out">What is docker <i class="fab fa-docker"></i>?</li>
+						<li class="fragment fade-in-then-semi-out">Comparison to Virtual Machine</li>
+						<li class="fragment fade-in-then-semi-out">Why is Docker important?</li>
+						<li class="fragment fade-in-then-semi-out">Docker commands: a cheat sheet</li>
+						<li class="fragment fade-in-then-semi-out">Compose (docker-compose)</li>
+						<li class="fragment fade-in-then-semi-out">Compose CLI reference</li>
+						<li class="fragment fade-in-then-semi-out">Compose file reference</li>
+						<li class="fragment fade-in-then-semi-out">Set up of CE-Assess in Docker Demo</li>
+					</ul>
+				</section> <!-- End of agenda -->
+
+				<section data-transition="fade-in" data-transition-speed="fast">
+					<h3 class="fragment grow">Application containerization</h3>
+					<p class="fragment">
+						- An OS-level virtualization method used to deploy and run distributed applications without launching an entire virtual machine (VM) for each app.
+					</p>
+					<p class="fragment">
+						- Multiple isolated applications or services run on a single host and access the same OS kernel.
+					</p>
+				</section> <!-- End of app containerization -->
+
+				<section data-transition="zoom" data-transition-speed="fast">
+					<h3>What is docker <i class="fab fa-docker"></i>?</h3>
+					<blockquote>
+						Docker Containerization Unlocks the Potential for Dev and Ops
+					</blockquote>
+				</section> <!-- End of what is docker -->
+
+				<section data-transition="fade-in">
+					<p>To further understand what Docker is, it is important to understand the following:</p>
+					<ul>
+						<li>Virtual Machine</li>
+						<li>Image</li>
+						<li>Container</li>
+						<li>VM/Container comparison</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Virtual Machine</h3>
+					<p class="fragment">
+						- is an emulation of a physical computer system in that it virtualizes physical computing resources like CPU, RAM, Network, and Disk.
+					</p>
+					<i class="fragment">Hypervisor (virtual machine monitor)</i>
+					<p class="fragment">
+						- computer software, firmware or hardware that creates and runs virtual machines.
+					</p>
+				</section>
+
+				<section>
+					<h3>Image</h3>
+					<p>
+						- a template for creating containers.
+					</p>
+					<p>
+						- images are used to run containers.
+					</p>
+				</section>
+
+				<section>
+					<h3>Container</h3>
+					<p>
+						- a standardized unit of software.
+					</p>
+					<p>
+						- isolated processes that virtualize an operating system.
+					</p>
+				</section>
+
+				<section>
+					<h3>VM / Container comparison</h3>
+					<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--yiYvgX5_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://user-images.githubusercontent.com/33935506/36058292-e9406996-0e24-11e8-9b95-1c4236e77093.png" />
+				</section>
+
+				<section>
+					<h3>Why is Docker important?</h3>
+					<ul>
+						<li>Works on my machine</li>
+						<li>Microservices</li>
+						<li>Test data</li>
+						<li>Deployment</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Docker commands: cheat sheet</h3>
+					<ul>
+						<li>docker run – Runs a command in a new container.</li>
+						<li>docker start – Starts one or more stopped containers</li>
+						<li>docker stop – Stops one or more running containers</li>
+						<li>docker build – Builds an image form a Docker file</li>
+						<li>docker pull – Pulls an image or a repository from a registry</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<li>docker push – Pushes an image or a repository to a registry</li>
+						<li>docker export – Exports a container’s filesystem as a tar archive</li>
+						<li>docker exec – Runs a command in a run-time container</li>
+						<li>docker search – Searches the Docker Hub for images</li>
+						<li>docker attach – Attaches to a running container</li>
+						<li>docker commit – Creates a new image from a container’s changes</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Compose (docker-compose)</h3>
+					<p class="fragment">
+						- Compose is a tool for defining and running multi-container Docker applications.
+					</p>
+					<p class="fragment">
+						- With Compose, you use a YAML file to configure your application’s services.
+					</p>
+					<a href="https://docs.docker.com/compose/reference/overview/#command-options-overview-and-help" class="fragment">CLI Reference</a> <span class="fragment">|</span>
+					<a href="https://docs.docker.com/compose/compose-file/" class="fragment">Compose File Reference</a>
+				</section>
+
+				<section>
+					<h1>DEMO</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
