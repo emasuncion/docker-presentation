@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Docker KS</title>
+		<title>Docker Upskilling</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/main.css">
@@ -41,74 +41,77 @@
 						<li class="fragment fade-in-then-semi-out">Comparison to Virtual Machine</li>
 						<li class="fragment fade-in-then-semi-out">Why is Docker important?</li>
 						<li class="fragment fade-in-then-semi-out">Docker commands: a cheat sheet</li>
+						<li class="fragment fade-in-then-semi-out">Dockerfile</li>
+						<li class="fragment fade-in-then-semi-out">Hands-on exercises</li>
 						<li class="fragment fade-in-then-semi-out">Compose (docker-compose)</li>
-						<li class="fragment fade-in-then-semi-out">Compose CLI reference</li>
-						<li class="fragment fade-in-then-semi-out">Compose file reference</li>
-						<li class="fragment fade-in-then-semi-out">Set up of CE-Assess in Docker Demo</li>
+						<li class="fragment fade-in-then-semi-out">Compose CLI & file reference</li>
 					</ul>
 				</section> <!-- End of agenda -->
 
 				<section data-transition="fade-in" data-transition-speed="fast">
 					<h3 class="fragment grow">Application containerization</h3>
 					<p class="fragment">
-						- An OS-level virtualization method used to deploy and run distributed applications without launching an entire virtual machine (VM) for each app.
-					</p>
-					<p class="fragment">
-						- Multiple isolated applications or services run on a single host and access the same OS kernel.
+						<ul>
+							<li class="fragment">An OS-level virtualization method used to deploy and run distributed applications without launching an entire virtual machine (VM) for each app.</li>
+							<li class="fragment">Multiple isolated applications or services run on a single host and access the same OS kernel.</li>
+						</ul>
 					</p>
 				</section> <!-- End of app containerization -->
 
 				<section data-transition="zoom" data-transition-speed="fast">
-					<h3>What is docker <i class="fab fa-docker"></i>?</h3>
-					<blockquote>
-						Docker Containerization Unlocks the Potential for Dev and Ops
-					</blockquote>
+					<section>
+						<h3>What is docker <i class="fab fa-docker"></i>?</h3>
+						<blockquote>
+							"Docker Containerization Unlocks the Potential for Dev and Ops"
+						</blockquote>
+					</section>
+					<section data-transition="fade-out">
+						<p>To further understand what Docker is, it is important to understand the following:</p>
+						<ul>
+							<li>Virtual Machine</li>
+							<li>Image</li>
+							<li>Container</li>
+							<li>VM/Container comparison</li>
+						</ul>
+					</section>
 				</section> <!-- End of what is docker -->
 
-				<section data-transition="fade-in">
-					<p>To further understand what Docker is, it is important to understand the following:</p>
-					<ul>
-						<li>Virtual Machine</li>
-						<li>Image</li>
-						<li>Container</li>
-						<li>VM/Container comparison</li>
-					</ul>
-				</section>
-
 				<section>
-					<h3>Virtual Machine</h3>
-					<p class="fragment">
-						- is an emulation of a physical computer system in that it virtualizes physical computing resources like CPU, RAM, Network, and Disk.
-					</p>
-					<i class="fragment">Hypervisor (virtual machine monitor)</i>
-					<p class="fragment">
-						- computer software, firmware or hardware that creates and runs virtual machines.
-					</p>
-				</section>
+					<section>
+						<h3>Virtual Machine</h3>
+						<p class="fragment">
+							- is an emulation of a physical computer system in that it virtualizes physical computing resources like CPU, RAM, Network, and Disk.
+						</p>
+						<i class="fragment">Hypervisor (virtual machine monitor)</i>
+						<p class="fragment">
+							- computer software, firmware or hardware that creates and runs virtual machines.
+						</p>
+					</section>
 
-				<section>
-					<h3>Image</h3>
-					<p>
-						- a template for creating containers.
-					</p>
-					<p>
-						- images are used to run containers.
-					</p>
-				</section>
+					<section>
+						<h3>Image</h3>
+						<p>
+							- a template for creating containers.
+						</p>
+						<p>
+							- images are used to run containers.
+						</p>
+					</section>
 
-				<section>
-					<h3>Container</h3>
-					<p>
-						- a standardized unit of software.
-					</p>
-					<p>
-						- isolated processes that virtualize an operating system.
-					</p>
-				</section>
+					<section>
+						<h3>Container</h3>
+						<p>
+							- a standardized unit of software.
+						</p>
+						<p>
+							- isolated processes that virtualize an operating system.
+						</p>
+					</section>
 
-				<section>
-					<h3>VM / Container comparison</h3>
-					<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--yiYvgX5_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://user-images.githubusercontent.com/33935506/36058292-e9406996-0e24-11e8-9b95-1c4236e77093.png" />
+					<section>
+						<h3>VM / Container comparison</h3>
+						<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--yiYvgX5_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://user-images.githubusercontent.com/33935506/36058292-e9406996-0e24-11e8-9b95-1c4236e77093.png" />
+					</section>
 				</section>
 
 				<section>
@@ -116,31 +119,87 @@
 					<ul>
 						<li>Works on my machine</li>
 						<li>Microservices</li>
-						<li>Test data</li>
 						<li>Deployment</li>
 					</ul>
 				</section>
 
 				<section>
-					<h3>Docker commands: cheat sheet</h3>
-					<ul>
-						<li>docker run – Runs a command in a new container.</li>
-						<li>docker start – Starts one or more stopped containers</li>
-						<li>docker stop – Stops one or more running containers</li>
-						<li>docker build – Builds an image form a Docker file</li>
-						<li>docker pull – Pulls an image or a repository from a registry</li>
-					</ul>
+					<section>
+						<h3>Docker commands: cheat sheet</h3>
+						<ul>
+							<li>docker pull – Pulls an image or a repository from a registry</li>
+							<li>docker run – Runs a command in a new container.</li>
+							<li>docker start – Starts one or more stopped containers</li>
+							<li>docker stop – Stops one or more running containers</li>
+							<li>docker build – Builds an image form a Docker file</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>docker rm – Remove one or more containers</li>
+							<li>docker rmi – Remove one or more images</li>
+							<li>docker push – Pushes an image or a repository to a registry</li>
+							<li>docker export – Exports a container’s filesystem as a tar archive</li>
+							<li>docker exec – Runs a command in a run-time container</li>
+							<li>docker search – Searches the Docker Hub for images</li>
+							<li>docker commit – Creates a new image from a container’s changes</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<ul>
-						<li>docker push – Pushes an image or a repository to a registry</li>
-						<li>docker export – Exports a container’s filesystem as a tar archive</li>
-						<li>docker exec – Runs a command in a run-time container</li>
-						<li>docker search – Searches the Docker Hub for images</li>
-						<li>docker attach – Attaches to a running container</li>
-						<li>docker commit – Creates a new image from a container’s changes</li>
-					</ul>
+					<section>
+						<h3>Dockerfile</h3>
+						<p>Text document that contains all the commands a user could call on the command line to assemble an image.</p>
+					</section>
+
+					<section>
+						<h3>Example</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Hands-on using the BASIC Docker commands</h3>
+					</section>
+					<section>
+						<h3>Part 1: Working around with the registry</h3>
+						<p>Pull the following images:</p>
+						<ul>
+							<li>hello-world</li>
+							<li>busybox</li>
+							<li>nginx</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Part 1.1: List all the images</h3>
+						<p>List all the images using <strong><code>docker images</code></strong></p>
+					</section>
+					<section>
+						<h3>Part 2: Hello World in Docker</h3>
+						<p>Using the busybox image, output "Hello Docker World!"</p>
+					</section>
+					<section>
+						<h3>Part 2.1: List all the running containers</h3>
+						<p>To check all the running containers, run <strong><code>docker ps</code></strong></p>
+					</section>
+					<section>
+						<h3>Part 2.2: List all the containers including the stopped containers</h3>
+						<p>To check all the containers, run <strong><code>docker ps --all</code></strong> or <strong><code>docker ps -a</code></strong></p>
+					</section>
+					<section>
+						<h3>Part 3: Stopping and removing containers</h3>
+						<p>Stop the hello-world and busybox containers then remove their corresponding images after</p>
+					</section>
+					<section>
+						<h3>Part 4: [Dockerfile] Deploy static website as container</h3>
+						<ol>
+							<li>Create a new directory</li>
+							<li>Inside the directory create a file named <code>index.html</code></li>
+							<li>Populate the index.html with the basic markup of html</li>
+							<li>Using the nginx image, deploy the static website as a container</li>
+						</ol>
+					</section>
 				</section>
 
 				<section>
@@ -153,10 +212,6 @@
 					</p>
 					<a href="https://docs.docker.com/compose/reference/overview/#command-options-overview-and-help" class="fragment">CLI Reference</a> <span class="fragment">|</span>
 					<a href="https://docs.docker.com/compose/compose-file/" class="fragment">Compose File Reference</a>
-				</section>
-
-				<section>
-					<h1>DEMO</h1>
 				</section>
 
 			</div>
